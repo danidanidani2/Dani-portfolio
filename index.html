@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Daniel Ortiz — Super Sayayín Developer</title>
+  <meta name="description" content="Frontend Developer with Ultra Instinct level skills. 15+ real projects showcasing modern web development expertise." />
+  <meta name="theme-color" content="#00E5A8" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Daniel Ortiz — Super Sayayín Developer" />
+  <meta property="og:description" content="Frontend Developer with Ultra Instinct level skills. 15+ real projects showcasing modern web development expertise." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://cosmic-analytics.netlify.app/og-image.jpg" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="cosmic-mode">
+  <!-- Efecto de partículas cósmicas -->
+  <div id="cosmicParticles"></div>
+  
+  <a class="skip-link" href="#inicio">Skip to content</a>
+
+  <!-- Header Mejorado -->
+  <header class="contenedor-header cosmic-header" role="banner">
+    <div class="header-inner">
+      <a class="logo cosmic-logo" href="#inicio" aria-label="Go to home">
+        <span class="logo-glow">DANIEL</span>
+        <span class="logo-orb">ORTIZ</span>
+      </a>
+
+      <button class="nav-toggle cosmic-toggle" id="menuToggle"
+              aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <i class="fa-solid fa-bars"></i>
+        <span class="cosmic-dots"></span>
+      </button>
+
+      <nav id="nav" class="cosmic-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#inicio" class="nav-glow"><i class="fa-solid fa-house"></i> HOME</a></li>
+          <li><a href="#about" class="nav-glow"><i class="fa-solid fa-user-astronaut"></i> ABOUT</a></li>
+          <li><a href="#skills" class="nav-glow"><i class="fa-solid fa-bolt"></i> SKILLS</a></li>
+          <li><a href="#experience" class="nav-glow"><i class="fa-solid fa-timeline"></i> EXPERIENCE</a></li>
+          <li><a href="#portfolio" class="nav-glow"><i class="fa-solid fa-rocket"></i> PROJECTS</a></li>
+          <li><a href="#contact" class="nav-glow"><i class="fa-solid fa-message"></i> CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <button id="themeToggle" class="btn cosmic-btn" type="button" aria-label="Toggle theme">
+        <i class="fa-solid fa-planet-ringed"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION ULTRA INSTINCT -->
+  <main id="inicio">
+    <section class="cosmic-hero" aria-labelledby="hero-title">
+      <div class="energy-aura">
+        <div class="cosmic-avatar" id="cosmicAvatar">
+          <svg viewBox="0 0 240 240" width="200" height="200" aria-hidden="true">
+            <defs>
+              <radialGradient id="cosmicGradient" cx="50%" cy="50%" r="60%">
+                <stop offset="0%" stop-color="#00e5a8"/>
+                <stop offset="50%" stop-color="#8b5cf6"/>
+                <stop offset="100%" stop-color="#f59e0b"/>
+              </radialGradient>
+              <filter id="ultraGlow">
+                <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <circle cx="120" cy="120" r="95" fill="none" stroke="url(#cosmicGradient)" stroke-width="12" filter="url(#ultraGlow)" opacity="0.6">
+              <animate attributeName="r" values="95;105;95" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="120" cy="120" r="65" fill="url(#cosmicGradient)" filter="url(#ultraGlow)">
+              <animate attributeName="opacity" values="1;0.8;1" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <text x="50%" y="54%" text-anchor="middle" fill="#0b1220" font-size="52" font-weight="900" font-family="Work Sans, sans-serif" class="initials-glow">DO</text>
+          </svg>
+        </div>
+      </div>
+
+      <h1 id="hero-title" class="power-level">
+        <span class="title-glow">DANIEL</span>
+        <span class="title-orb">ORTIZ</span>
+      </h1>
+      
+      <h2 class="title-ki">
+        <span class="power-type">Frontend Developer</span>
+        <span class="power-separator"> | </span>
+        <span class="power-up">Future Full-Stack</span>
+      </h2>
+
+      <div class="power-indicator">
+        <div class="ki-bar" data-power="89">
+          <div class="ki-energy"></div>
+          <span class="power-text">POWER LEVEL: <strong>OVER 9000!</strong></span>
+        </div>
+      </div>
+
+      <div class="cosmic-redes">
+        <a href="https://linkedin.com/in/tu-perfil" class="cosmic-link" aria-label="LinkedIn" data-tooltip="Connect on LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+          <span class="link-aura"></span>
+        </a>
+        <a href="https://github.com/danidanidani2" class="cosmic-link" aria-label="GitHub" data-tooltip="Check my code">
+          <i class="fa-brands fa-github"></i>
+          <span class="link-aura"></span>
+        </a>
+        <a href="mailto:dramosortiz14@gmail.com" class="cosmic-link" aria-label="Email" data-tooltip="Send me a message">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="link-aura"></span>
+        </a>
+        <a href="https://twitter.com/tu-usuario" class="cosmic-link" aria-label="Twitter" data-tooltip="Follow my journey">
+          <i class="fa-brands fa-x-twitter"></i>
+          <span class="link-aura"></span>
+        </a>
+      </div>
+
+      <div class="floating-particles">
+        <div class="particle" style="--delay: 0s; --duration: 20s;"></div>
+        <div class="particle" style="--delay: 2s; --duration: 25s;"></div>
+        <div class="particle" style="--delay: 4s; --duration: 18s;"></div>
+        <div class="particle" style="--delay: 6s; --duration: 22s;"></div>
+        <div class="particle" style="--delay: 8s; --duration: 19s;"></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="sobremi cosmic-section" aria-labelledby="about-title">
+      <div class="contenido-seccion">
+        <h2 id="about-title" class="section-title"><span class="title-decorator">About Me</span></h2>
+        
+        <div class="cosmic-bio">
+          <p class="bio-text">
+            <span class="bio-highlight">Hello, I'm Daniel Ortiz.</span> 
+            With a <strong class="power-word">solid background in IT Support</strong>, I've transformed into a developer to 
+            <strong class="power-word">build solutions from concept to deployment</strong>. Currently mastering the 
+            <strong class="power-word">Higher Degree in Multiplatform App Development</strong> while crafting 
+            <strong class="power-word">15+ real frontend projects</strong>. My support experience gives me 
+            <strong class="power-word">unique empathy for users and systems architecture</strong>.
+          </p>
+        </div>
+
+        <div class="fila cosmic-fila">
+          <div class="col cosmic-col">
+            <div class="info-card">
+              <h3><i class="fa-solid fa-id-card"></i> Contact Info</h3>
+              <ul class="cosmic-list">
+                <li><i class="fa-solid fa-phone cosmic-icon"></i><strong>Phone</strong><span>+34 634 19 05 63</span></li>
+                <li><i class="fa-solid fa-envelope cosmic-icon"></i><strong>Email</strong><span>dramosortiz14@gmail.com</span></li>
+                <li><i class="fa-solid fa-globe cosmic-icon"></i><strong>Website</strong><span>danielortiz-dev.com</span></li>
+                <li><i class="fa-solid fa-location-dot cosmic-icon"></i><strong>Location</strong><span>Madrid, Spain</span></li>
+                <li><i class="fa-solid fa-bolt cosmic-icon"></i><strong>Status</strong><span class="status-available">AVAILABLE FOR FREELANCE</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col cosmic-col">
+            <div class="interests-card">
+              <h3><i class="fa-solid fa-stars"></i> Tech Interests</h3>
+              <div class="contenedor-intereses cosmic-interests">
+                <div class="interes cosmic-interest" data-tooltip="Web Development"><i class="fa-solid fa-code"></i><span>DEV</span></div>
+                <div class="interes cosmic-interest" data-tooltip="Cybersecurity"><i class="fa-solid fa-shield-halved"></i><span>SEC</span></div>
+                <div class="interes cosmic-interest" data-tooltip="Networking"><i class="fa-solid fa-network-wired"></i><span>NET</span></div>
+                <div class="interes cosmic-interest" data-tooltip="Linux Systems"><i class="fa-brands fa-linux"></i><span>LINUX</span></div>
+                <div class="interes cosmic-interest" data-tooltip="Databases"><i class="fa-solid fa-database"></i><span>DB</span></div>
+                <div class="interes cosmic-interest" data-tooltip="Mobile Development"><i class="fa-solid fa-mobile-screen"></i><span>MOBILE</span></div>
+                <div class="interes cosmic-interest" data-tooltip="JavaScript"><i class="fa-brands fa-js"></i><span>JS</span></div>
+                <div class="interes cosmic-interest" data-tooltip="React Ecosystem"><i class="fa-brands fa-react"></i><span>REACT</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn cosmic-download" id="cvBtn">
+          <span class="btn-content"><i class="fa-solid fa-file-arrow-down"></i>Download CV</span>
+          <span class="cosmic-overlay"></span>
+          <span class="btn-particles"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills cosmic-skills" id="skills" aria-labelledby="skills-title">
+      <div class="contenido-seccion">
+        <h2 id="skills-title" class="section-title"><span class="title-decorator">Technical Arsenal</span></h2>
+        <div class="skills-intro"><p>My power levels are constantly evolving. Here's my current technical mastery:</p></div>
+
+        <div class="fila cosmic-fila">
+          <div class="col cosmic-col">
+            <div class="skills-category">
+              <h3><i class="fa-solid fa-laptop-code"></i> Development Skills</h3>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>HTML & CSS</span><span class="skill-percent" data-target="95">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso htmlcss cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>JavaScript ES6+</span><span class="skill-percent" data-target="88">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso javascript cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>React & Ecosystem</span><span class="skill-percent" data-target="82">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso react cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Node.js & Backend</span><span class="skill-percent" data-target="75">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso node cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Git & GitHub</span><span class="skill-percent" data-target="90">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso git cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col cosmic-col">
+            <div class="skills-category">
+              <h3><i class="fa-solid fa-user-astronaut"></i> Professional Power</h3>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Problem Solving</span><span class="skill-percent" data-target="94">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso problemas cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Team Collaboration</span><span class="skill-percent" data-target="89">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso teamwork cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Technical Communication</span><span class="skill-percent" data-target="87">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso comunicacion cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Project Management</span><span class="skill-percent" data-target="83">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso tiempo cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+              <div class="skill cosmic-skill">
+                <div class="skill-header"><span>Continuous Learning</span><span class="skill-percent" data-target="96">0%</span></div>
+                <div class="barra-skill cosmic-bar"><div class="progreso aprendizaje cosmic-progress"><div class="energy-wave"></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-stack">
+          <h3>Tech Stack & Tools</h3>
+          <div class="stack-items">
+            <div class="stack-item" data-tooltip="HTML5"><i class="fa-brands fa-html5"></i></div>
+            <div class="stack-item" data-tooltip="CSS3"><i class="fa-brands fa-css3-alt"></i></div>
+            <div class="stack-item" data-tooltip="JavaScript"><i class="fa-brands fa-js"></i></div>
+            <div class="stack-item" data-tooltip="React"><i class="fa-brands fa-react"></i></div>
+            <div class="stack-item" data-tooltip="Node.js"><i class="fa-brands fa-node-js"></i></div>
+            <div class="stack-item" data-tooltip="Git"><i class="fa-brands fa-git-alt"></i></div>
+            <div class="stack-item" data-tooltip="GitHub"><i class="fa-brands fa-github"></i></div>
+            <div class="stack-item" data-tooltip="VS Code"><i class="fa-solid fa-code"></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="curriculum cosmic-timeline" aria-labelledby="exp-title">
+      <div class="contenido-seccion">
+        <h2 id="exp-title" class="section-title"><span class="title-decorator">Journey & Evolution</span></h2>
+        
+        <div class="fila cosmic-fila">
+          <div class="col izquierda cosmic-col">
+            <div class="timeline-section">
+              <h3><i class="fa-solid fa-graduation-cap"></i> Education Path</h3>
+              
+              <div class="item izq cosmic-item">
+                <div class="item-glow"></div>
+                <h4>Multiplatform Application Development</h4>
+                <span class="casa cosmic-company">ILERNA</span>
+                <span class="fecha cosmic-date">2023 - Present</span>
+                <p>Mastering application development, databases, programming and web design. Expanding expertise in full-stack technologies and modern development practices.</p>
+                <div class="conectori cosmic-connector"><div class="circuloi cosmic-dot"></div></div>
+                <div class="item-tags"><span class="tech-tag">Full-Stack</span><span class="tech-tag">Databases</span><span class="tech-tag">Web Design</span></div>
+              </div>
+
+              <div class="item izq cosmic-item">
+                <div class="item-glow"></div>
+                <h4>Electronic Maintenance</h4>
+                <span class="casa cosmic-company">IES Pacífico</span>
+                <span class="fecha cosmic-date">2019 - 2021</span>
+                <p>Specialized in diagnosing and repairing industrial electronic equipment. Developed strong analytical and problem-solving skills in hardware systems.</p>
+                <div class="conectori cosmic-connector"><div class="circuloi cosmic-dot"></div></div>
+                <div class="item-tags"><span class="tech-tag">Hardware</span><span class="tech-tag">Diagnostics</span><span class="tech-tag">Electronics</span></div>
+              </div>
+
+              <div class="item izq cosmic-item">
+                <div class="item-glow"></div>
+                <h4>CyberOps Associate</h4>
+                <span class="casa cosmic-company">CISCO</span>
+                <span class="fecha cosmic-date">2023</span>
+                <p>Cybersecurity certification focused on threat detection, incident analysis, network security, and endpoint protection in SOC environments.</p>
+                <div class="conectori cosmic-connector"><div class="circuloi cosmic-dot"></div></div>
+                <div class="item-tags"><span class="tech-tag">Security</span><span class="tech-tag">Networking</span><span class="tech-tag">Threat Analysis</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col derecha cosmic-col">
+            <div class="timeline-section">
+              <h3><i class="fa-solid fa-briefcase"></i> Professional Evolution</h3>
+              
+              <div class="item der cosmic-item">
+                <div class="item-glow"></div>
+                <h4>IT Support Technician</h4>
+                <span class="casa cosmic-company">AIRON</span>
+                <span class="fecha cosmic-date">2024</span>
+                <p>Provided Level 1 technical support for public administration staff. Managed Active Directory, remote support tools, and workstation configuration in Windows environments.</p>
+                <div class="conectord cosmic-connector"><div class="circulod cosmic-dot"></div></div>
+                <div class="item-tags"><span class="tech-tag">Active Directory</span><span class="tech-tag">Remote Support</span><span class="tech-tag">Windows</span></div>
+              </div>
+
+              <div class="item der cosmic-item">
+                <div class="item-glow"></div>
+                <h4>Technical Support Specialist</h4>
+                <span class="casa cosmic-company">Aptica</span>
+                <span class="fecha cosmic-date">2024</span>
+                <p>Delivered internal hardware/software support, managed incidents through Jira, and maintained peripheral equipment. Ensured operational continuity across systems.</p>
+                <div class="conectord cosmic-connector"><div class="circulod cosmic-dot"></div></div>
+                <div class="item-tags"><span class="tech-tag">Jira</span><span class="tech-tag">Hardware</span><span class="tech-tag">Ticketing</span></div>
+              </div>
+
+              <div class="item der cosmic-item">
+                <div class="item-glow"></div>
+                <h4>Helpdesk Technician (L1)</h4>
+                <span class="casa cosmic-company">NUNSYS</span>
+                <span class="fecha cosmic-date">2021 - 2024</span>
+                <p>Provided first-level technical support for networks, printers, email, and system configurations. Managed tickets through ServiceNow and performed Windows environment maintenance.</p>
+                <div class="conectord cosmic-connector"><div class="circulod cosmic-dot"></div></div>
+                <div class="item-tags"><span class="tech-tag">ServiceNow</span><span class="tech-tag">Networking</span><span class="tech-tag">Windows Admin</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="portfolio" class="portfolio cosmic-projects" aria-labelledby="portfolio-title">
+      <div class="contenido-seccion">
+        <h2 id="portfolio-title" class="section-title"><span class="title-decorator">Cosmic Creations</span></h2>
+        <div class="projects-intro"><p>Explore my universe of 15+ real projects. Each one represents hands-on experience with modern web technologies and user-centric design.</p></div>
+
+        <div class="filtros cosmic-filters">
+          <button class="btn-filtro cosmic-filter active" data-filter="all"><i class="fa-solid fa-star"></i>All Projects</button>
+          <button class="btn-filtro cosmic-filter" data-filter="featured"><i class="fa-solid fa-gem"></i>Featured</button>
+          <button class="btn-filtro cosmic-filter" data-filter="frontend"><i class="fa-solid fa-code"></i>Frontend</button>
+          <button class="btn-filtro cosmic-filter" data-filter="ai"><i class="fa-solid fa-robot"></i>AI Enhanced</button>
+          <button class="btn-filtro cosmic-filter" data-filter="practice"><i class="fa-solid fa-flask"></i>Practice</button>
+        </div>
+
+        <div class="projects-counter">
+          <span class="counter-number">15</span>
+          <span class="counter-text">Real Projects & Counting</span>
+        </div>
+
+        <div class="galeria cosmic-grid" id="galeria" role="list"></div>
+
+        <div class="ver-mas cosmic-load-more">
+          <button id="ver-mas-proyectos" class="cosmic-load-btn">
+            <span class="btn-text">Load More Projects</span>
+            <span class="btn-loader"></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contacto cosmic-contact" aria-labelledby="contact-title">
+      <div class="contenido-seccion">
+        <h2 id="contact-title" class="section-title"><span class="title-decorator">Initiate Contact</span></h2>
+        <div class="contact-intro"><p>Ready to create something amazing together? Let's connect and discuss how we can bring your ideas to life.</p></div>
+
+        <div class="fila cosmic-fila">
+          <div class="col cosmic-col">
+            <!-- NETLIFY FORM con honeypot -->
+            <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="success.html" class="cosmic-form" novalidate>
+              <input type="hidden" name="form-name" value="contact">
+              <p class="hidden" style="display:none;">
+              <label>Don’t fill this out: <input name="bot-field"></label>
+            </p>
+
+              <div class="form-group">
+                <input type="text" name="name" placeholder=" " autocomplete="name" required />
+                <label>Your Name</label>
+                <div class="form-underline"></div>
+              </div>
+              
+              <div class="form-group">
+                <input type="tel" name="phone" placeholder=" " autocomplete="tel" />
+                <label>Phone Number (Optional)</label>
+                <div class="form-underline"></div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" name="email" placeholder=" " autocomplete="email" required />
+                <label>Email Address</label>
+                <div class="form-underline"></div>
+              </div>
+              
+              <div class="form-group">
+                <input type="text" name="subject" placeholder=" " />
+                <label>Subject</label>
+                <div class="form-underline"></div>
+              </div>
+              
+              <div class="form-group">
+                <textarea name="message" rows="6" placeholder=" " required></textarea>
+                <label>Your Message</label>
+                <div class="form-underline"></div>
+              </div>
+
+              <button type="submit" class="cosmic-submit">
+                <span class="submit-content"><i class="fa-solid fa-paper-plane"></i>Transmit Message</span>
+                <span class="cosmic-overlay"></span>
+                <span class="submit-particles"></span>
+              </button>
+            </form>
+          </div>
+
+          <div class="col cosmic-col">
+            <div class="contact-info cosmic-info">
+              <div class="info-card contact-card">
+                <h3><i class="fa-solid fa-comment-dots"></i> Get In Touch</h3>
+                <ul class="cosmic-contact-list">
+                  <li><i class="fa-solid fa-location-dot cosmic-icon"></i><div><strong>Location</strong><span>Madrid, Spain</span></div></li>
+                  <li><i class="fa-solid fa-mobile-screen cosmic-icon"></i><div><strong>Phone</strong><span>+34 634 19 05 63</span></div></li>
+                  <li><i class="fa-solid fa-envelope cosmic-icon"></i><div><strong>Email</strong><span>dramosortiz14@gmail.com</span></div></li>
+                  <li><i class="fa-solid fa-clock cosmic-icon"></i><div><strong>Response Time</strong><span>Within 24 hours</span></div></li>
+                </ul>
+                <div class="availability-status"><div class="status-indicator"></div><span>Currently available for freelance projects</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="cosmic-footer" role="contentinfo">
+    <div class="footer-content">
+      <a href="#inicio" class="arriba cosmic-scroll-top" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+        <span class="scroll-aura"></span>
+      </a>
+      
+      <div class="footer-main">
+        <div class="footer-brand">
+          <h3>DANIEL ORTIZ</h3>
+          <p>Crafting digital experiences with cosmic precision</p>
+        </div>
+        
+        <div class="footer-redes">
+          <a href="https://linkedin.com/in/tu-perfil" class="cosmic-social" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i><span class="social-tooltip">LinkedIn</span></a>
+          <a href="https://github.com/danidanidani2" class="cosmic-social" aria-label="GitHub"><i class="fa-brands fa-github"></i><span class="social-tooltip">GitHub</span></a>
+          <a href="https://twitter.com/tu-usuario" class="cosmic-social" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i><span class="social-tooltip">Twitter</span></a>
+          <a href="mailto:dramosortiz14@gmail.com" class="cosmic-social" aria-label="Email"><i class="fa-solid fa-envelope"></i><span class="social-tooltip">Email</span></a>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Daniel Ortiz. Crafted with <i class="fa-solid fa-heart cosmic-heart"></i> and cosmic energy</p>
+        <div class="footer-links">
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+          <a href="#sitemap">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-particles"></div>
+  </footer>
+
+  <script src="script.js"></script>
+  
+  <!-- Konami (fallback) -->
+  <script>
+    // Fallback visual only; la lógica real está en script.js
+  </script>
+  <footer class="cosmic-footer">
+  <div class="contenido-seccion">
+    <h3>🌐 Connect with me</h3>
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/daniel-r-346388360/" target="_blank" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/danidanidani2" target="_blank" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="mailto:dramosortiz14@gmail.com" title="Send Email">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+      <a href="https://app.netlify.com/teams/dramosortiz14/projects" target="_blank" title="Netlify Projects">
+        <i class="fa-solid fa-globe"></i>
+      </a>
+    </div>
+
+    <p class="footer-copy">
+      © 2025 <strong>Daniel Ortiz</strong> — Built with 💻 and cosmic energy ⚡
+    </p>
+  </div>
+</footer>
+
+
+</body>
+</html>

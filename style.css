@@ -1,0 +1,2135 @@
+/* ===========================================
+   SISTEMA DE DISEÑO CÓSMICO - VARIABLES
+   =========================================== */
+:root {
+  /* Colores cósmicos principales */
+  --cosmic-primary: #00E5A8;
+  --cosmic-secondary: #8B5CF6;
+  --cosmic-tertiary: #F59E0B;
+  --cosmic-accent: #EF4444;
+  
+  /* Fondos y superficies */
+  --nebula-bg: #0B1120;
+  --black-hole: #030712;
+  --star-dust: rgba(255, 255, 255, 0.08);
+  --comet-tail: rgba(255, 255, 255, 0.12);
+  
+  /* Textos */
+  --milky-way: #FFFFFF;
+  --moon-dust: #E5E7EB;
+  --asteroid: #9CA3AF;
+  --dark-matter: #1F2937;
+  
+  /* Efectos y sombras */
+  --stardust-shadow: 0 0 40px rgba(0, 229, 168, 0.3);
+  --pulsar-glow: 0 0 80px rgba(139, 92, 246, 0.4);
+  --supernova: 0 0 120px rgba(245, 158, 11, 0.5);
+  --black-hole-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  
+  /* Gradientes épicos */
+  --gradient-cosmic: linear-gradient(135deg, var(--cosmic-primary), var(--cosmic-secondary));
+  --gradient-ultra: linear-gradient(135deg, var(--cosmic-primary), var(--cosmic-secondary), var(--cosmic-tertiary));
+  --gradient-hero: radial-gradient(circle at 20% 80%, rgba(0, 229, 168, 0.15), transparent 50%),
+                   radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.15), transparent 50%),
+                   var(--nebula-bg);
+}
+
+/* ===========================================
+   RESET Y CONFIGURACIÓN BASE
+   =========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--nebula-bg);
+}
+
+body {
+  font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+  background: var(--nebula-bg);
+  color: var(--milky-way);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 229, 168, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* ===========================================
+   PARTÍCULAS CÓSMICAS (Background animado)
+   =========================================== */
+#cosmicParticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  background: var(--cosmic-primary);
+  border-radius: 50%;
+  animation: floatCosmic var(--duration) linear infinite var(--delay);
+  opacity: 0.6;
+  filter: blur(1px);
+}
+
+.particle:nth-child(odd) {
+  background: var(--cosmic-secondary);
+}
+
+@keyframes floatCosmic {
+  0% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===========================================
+   ACCESIBILIDAD
+   =========================================== */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-link:focus {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  width: auto;
+  height: auto;
+  padding: 12px 18px;
+  background: var(--cosmic-primary);
+  color: var(--black-hole);
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ===========================================
+   HEADER CÓSMICO
+   =========================================== */
+.contenedor-header {
+  background: rgba(11, 17, 32, 0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--star-dust);
+  transition: all 0.3s ease;
+}
+
+.contenedor-header.scrolled {
+  background: rgba(11, 17, 32, 0.98);
+  box-shadow: var(--black-hole-shadow);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  gap: 16px;
+}
+
+/* Logo Cósmico */
+.cosmic-logo {
+  font-family: 'Righteous', sans-serif;
+  font-size: 28px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-glow {
+  color: var(--cosmic-primary);
+  text-shadow: 0 0 20px rgba(0, 229, 168, 0.5);
+}
+
+.logo-orb {
+  color: var(--cosmic-secondary);
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+/* Navegación Cósmica */
+.cosmic-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 4px;
+}
+
+.cosmic-nav a {
+  color: var(--moon-dust);
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.cosmic-nav a:hover::before,
+.cosmic-nav a:focus::before {
+  left: 0;
+}
+
+.cosmic-nav a:hover,
+.cosmic-nav a:focus {
+  color: var(--black-hole);
+  transform: translateY(-2px);
+}
+
+/* Botón Toggle Mejorado */
+.cosmic-toggle {
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-dots {
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+  position: relative;
+}
+
+.cosmic-dots::before,
+.cosmic-dots::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: currentColor;
+  border-radius: 50%;
+}
+
+.cosmic-dots::before {
+  left: -8px;
+}
+
+.cosmic-dots::after {
+  right: -8px;
+}
+
+/* ===========================================
+   HERO SECTION ULTRA INSTINCT
+   =========================================== */
+.cosmic-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+  background: var(--gradient-hero);
+  overflow: hidden;
+}
+
+/* Aura de energía */
+.energy-aura {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.energy-aura::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: var(--gradient-ultra);
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: pulseAura 4s ease-in-out infinite;
+}
+
+@keyframes pulseAura {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Avatar Cósmico */
+.cosmic-avatar {
+  position: relative;
+  z-index: 2;
+}
+
+.initials-glow {
+  filter: drop-shadow(0 0 10px rgba(0, 229, 168, 0.5));
+}
+
+/* Títulos del Hero */
+.power-level {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.title-glow {
+  color: var(--cosmic-primary);
+  text-shadow: 0 0 30px rgba(0, 229, 168, 0.7);
+}
+
+.title-orb {
+  color: var(--cosmic-secondary);
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.7);
+}
+
+.title-ki {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  margin-bottom: 40px;
+  color: var(--moon-dust);
+}
+
+.power-type {
+  color: var(--cosmic-primary);
+}
+
+.power-up {
+  color: var(--cosmic-tertiary);
+  font-weight: 700;
+}
+
+/* Indicador de Poder */
+.power-indicator {
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto;
+}
+
+.ki-bar {
+  background: rgba(255, 255, 255, 0.1);
+  height: 6px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.ki-energy {
+  height: 100%;
+  background: var(--gradient-cosmic);
+  border-radius: 10px;
+  width: 89%;
+  position: relative;
+  overflow: hidden;
+}
+
+.ki-energy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: kamehameha 2s infinite;
+}
+
+@keyframes kamehameha {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.power-text {
+  font-size: 0.9rem;
+  color: var(--asteroid);
+}
+
+/* Redes Sociales Cósmicas */
+.cosmic-redes {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.cosmic-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--milky-way);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.link-aura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.cosmic-link:hover .link-aura {
+  transform: scale(1);
+}
+
+.cosmic-link:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--stardust-shadow);
+}
+
+.cosmic-link i {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================
+   SECCIONES GENERALES MEJORADAS
+   =========================================== */
+.cosmic-section {
+  padding: 100px 20px;
+  position: relative;
+}
+
+.contenido-seccion {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Righteous', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.title-decorator {
+  background: var(--gradient-cosmic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.title-decorator::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-cosmic);
+  border-radius: 2px;
+}
+
+/* ===========================================
+   ABOUT SECTION MEJORADA
+   =========================================== */
+.cosmic-bio {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.bio-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--moon-dust);
+}
+
+.bio-highlight {
+  color: var(--cosmic-primary);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.power-word {
+  background: linear-gradient(135deg, var(--cosmic-primary), var(--cosmic-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.cosmic-fila {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.cosmic-col {
+  flex: 1;
+}
+
+/* Tarjetas de Información */
+.info-card,
+.interests-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--star-dust);
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.info-card:hover,
+.interests-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--stardust-shadow);
+  border-color: var(--cosmic-primary);
+}
+
+.info-card h3,
+.interests-card h3 {
+  color: var(--cosmic-primary);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+}
+
+/* Lista de Contacto Cósmica */
+.cosmic-list {
+  list-style: none;
+}
+
+.cosmic-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--star-dust);
+}
+
+.cosmic-list li:last-child {
+  border-bottom: none;
+}
+
+.cosmic-icon {
+  color: var(--cosmic-primary);
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.cosmic-list strong {
+  color: var(--cosmic-primary);
+  min-width: 80px;
+}
+
+.cosmic-list span {
+  color: var(--moon-dust);
+}
+
+.status-available {
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Intereses Cósmicos */
+.cosmic-interests {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.cosmic-interest {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--star-dust);
+  border-radius: 15px;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-interest::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.cosmic-interest:hover::before {
+  left: 0;
+}
+
+.cosmic-interest:hover {
+  transform: translateY(-5px) scale(1.05);
+  border-color: var(--cosmic-primary);
+  color: var(--black-hole);
+}
+
+.cosmic-interest i {
+  font-size: 1.5rem;
+  color: var(--cosmic-primary);
+  transition: color 0.3s ease;
+}
+
+.cosmic-interest:hover i {
+  color: var(--black-hole);
+}
+
+.cosmic-interest span {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Botón de Descarga Cósmico */
+.cosmic-download {
+  background: transparent;
+  border: 2px solid var(--cosmic-primary);
+  color: var(--cosmic-primary);
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.cosmic-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.cosmic-download:hover .cosmic-overlay {
+  width: 100%;
+}
+
+.cosmic-download:hover {
+  color: var(--black-hole);
+  transform: translateY(-3px);
+  box-shadow: var(--stardust-shadow);
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===========================================
+   SKILLS SECTION ULTRA MEJORADA
+   =========================================== */
+.cosmic-skills {
+  background: rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.skills-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  color: var(--moon-dust);
+  font-size: 1.1rem;
+}
+
+.skills-category {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--star-dust);
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+}
+
+.skills-category h3 {
+  color: var(--cosmic-primary);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+/* Skills Individuales Mejoradas */
+.cosmic-skill {
+  margin-bottom: 25px;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.skill-header span:first-child {
+  color: var(--moon-dust);
+  font-weight: 600;
+}
+
+.skill-percent {
+  color: var(--cosmic-primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.cosmic-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cosmic-progress {
+  height: 100%;
+  background: var(--gradient-cosmic);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  animation: loadSkill 2s ease-out forwards;
+}
+
+.energy-wave {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: kamehameha 2s infinite;
+}
+
+@keyframes loadSkill {
+  to {
+    width: var(--target-width);
+  }
+}
+
+/* Tech Stack Visual */
+.tech-stack {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.tech-stack h3 {
+  color: var(--cosmic-primary);
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+}
+
+.stack-items {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stack-item {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--star-dust);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--cosmic-primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.stack-item:hover {
+  transform: translateY(-5px) scale(1.1);
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  box-shadow: var(--stardust-shadow);
+}
+
+/* ===========================================
+   TIMELINE EXPERIENCE MEJORADA
+   =========================================== */
+.cosmic-timeline {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.timeline-section h3 {
+  color: var(--cosmic-primary);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+.cosmic-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--star-dust);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cosmic-item:hover {
+  transform: translateX(5px);
+  border-color: var(--cosmic-primary);
+  box-shadow: var(--stardust-shadow);
+}
+
+.item-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.cosmic-item:hover .item-glow {
+  opacity: 0.1;
+}
+
+.cosmic-item h4 {
+  color: var(--milky-way);
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.cosmic-company {
+  color: var(--cosmic-primary);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.cosmic-date {
+  color: var(--cosmic-secondary);
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.cosmic-item p {
+  color: var(--moon-dust);
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: rgba(0, 229, 168, 0.1);
+  color: var(--cosmic-primary);
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid rgba(0, 229, 168, 0.3);
+}
+
+/* Conectores de Timeline */
+.cosmic-connector {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  background: var(--cosmic-primary);
+  z-index: 1;
+}
+
+.izq .cosmic-connector {
+  right: -40px;
+}
+
+.der .cosmic-connector {
+  left: -40px;
+}
+
+.cosmic-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--gradient-cosmic);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.izq .cosmic-dot {
+  right: -6px;
+}
+
+.der .cosmic-dot {
+  left: -6px;
+}
+
+/* ===========================================
+   PROJECTS SECTION ULTRA INSTINCT
+   =========================================== */
+.cosmic-projects {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.projects-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--moon-dust);
+  font-size: 1.1rem;
+}
+
+/* Filtros Cósmicos */
+.cosmic-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.cosmic-filter {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--star-dust);
+  color: var(--moon-dust);
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.cosmic-filter:hover {
+  border-color: var(--cosmic-primary);
+  transform: translateY(-2px);
+}
+
+.cosmic-filter.active {
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  border-color: transparent;
+  box-shadow: var(--stardust-shadow);
+}
+
+/* Contador de Proyectos */
+.projects-counter {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.counter-number {
+  font-size: 4rem;
+  font-weight: 900;
+  background: var(--gradient-ultra);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  line-height: 1;
+}
+
+.counter-text {
+  color: var(--moon-dust);
+  font-size: 1.2rem;
+}
+
+/* Grid de Proyectos Cósmico */
+.cosmic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Las tarjetas de proyectos se generan dinámicamente via JS */
+.proyecto {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--star-dust);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.proyecto:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--cosmic-primary);
+  box-shadow: var(--stardust-shadow);
+}
+
+.proyecto img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.proyecto:hover img {
+  transform: scale(1.1);
+}
+
+.proyecto .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(11, 17, 32, 0.9), rgba(0, 229, 168, 0.9));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.proyecto:hover .overlay {
+  opacity: 1;
+}
+
+.proyecto .overlay h3 {
+  color: var(--black-hole);
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.proyecto .overlay p {
+  color: var(--black-hole);
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Meta información del proyecto */
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tech-tags .tech-tag {
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--cosmic-primary);
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.power-level {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--black-hole);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.proyecto-links {
+  display: flex;
+  gap: 15px;
+}
+
+.proyecto-links a {
+  width: 45px;
+  height: 45px;
+  background: var(--black-hole);
+  color: var(--cosmic-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.proyecto-links a:hover {
+  background: var(--cosmic-primary);
+  color: var(--black-hole);
+  transform: scale(1.1);
+}
+
+/* Badge de estado del proyecto */
+.project-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--cosmic-primary);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 2;
+}
+
+.project-badge.completed {
+  background: rgba(0, 229, 168, 0.2);
+  color: var(--cosmic-primary);
+}
+
+.project-badge.in-progress {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--cosmic-tertiary);
+}
+
+.project-badge.planned {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--cosmic-secondary);
+}
+
+/* Botón Load More Mejorado */
+.cosmic-load-more {
+  text-align: center;
+}
+
+.cosmic-load-btn {
+  background: transparent;
+  border: 2px solid var(--cosmic-primary);
+  color: var(--cosmic-primary);
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-load-btn:hover {
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  transform: translateY(-3px);
+  box-shadow: var(--stardust-shadow);
+}
+
+.btn-loader {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  opacity: 0;
+}
+
+.cosmic-load-btn.loading .btn-loader {
+  opacity: 1;
+}
+
+.cosmic-load-btn.loading .btn-text {
+  opacity: 0.7;
+}
+
+/* ===========================================
+   CONTACT SECTION MEJORADA
+   =========================================== */
+.cosmic-contact {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  color: var(--moon-dust);
+  font-size: 1.1rem;
+}
+
+/* Formulario Cósmico */
+.cosmic-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--star-dust);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--star-dust);
+  color: var(--milky-way);
+  font-size: 1rem;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.form-group textarea {
+  min-height: 120px;
+}
+
+.form-group label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  color: var(--asteroid);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-bottom-color: var(--cosmic-primary);
+}
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -20px;
+  font-size: 0.8rem;
+  color: var(--cosmic-primary);
+}
+
+.form-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-cosmic);
+  transition: width 0.3s ease;
+}
+
+.form-group input:focus ~ .form-underline,
+.form-group textarea:focus ~ .form-underline {
+  width: 100%;
+}
+
+/* Botón de Envío Cósmico */
+.cosmic-submit {
+  background: transparent;
+  border: 2px solid var(--cosmic-primary);
+  color: var(--cosmic-primary);
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+}
+
+.cosmic-submit:hover {
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  transform: translateY(-3px);
+  box-shadow: var(--stardust-shadow);
+}
+
+.submit-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Información de Contacto */
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--star-dust);
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+}
+
+.contact-card h3 {
+  color: var(--cosmic-primary);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+.cosmic-contact-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.cosmic-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--star-dust);
+}
+
+.cosmic-contact-list li:last-child {
+  border-bottom: none;
+}
+
+.cosmic-contact-list strong {
+  color: var(--cosmic-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cosmic-contact-list span {
+  color: var(--moon-dust);
+}
+
+.availability-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: rgba(0, 229, 168, 0.1);
+  border: 1px solid rgba(0, 229, 168, 0.3);
+  border-radius: 10px;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  background: var(--cosmic-primary);
+  border-radius: 50%;
+  animation: pulseStatus 2s infinite;
+}
+
+@keyframes pulseStatus {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+/* ===========================================
+   FOOTER ULTRA INSTINCT
+   =========================================== */
+.cosmic-footer {
+  background: var(--black-hole);
+  color: var(--moon-dust);
+  padding: 60px 20px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Botón Scroll Top Mejorado */
+.cosmic-scroll-top {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cosmic-scroll-top:hover {
+  transform: translateX(-50%) translateY(-5px);
+  box-shadow: var(--stardust-shadow);
+}
+
+.scroll-aura {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-cosmic);
+  border-radius: 50%;
+  opacity: 0;
+  animation: pulseAura 2s infinite;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-brand h3 {
+  color: var(--cosmic-primary);
+  font-family: 'Righteous', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  color: var(--asteroid);
+}
+
+.footer-redes {
+  display: flex;
+  gap: 15px;
+}
+
+.cosmic-social {
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--star-dust);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--moon-dust);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cosmic-social:hover {
+  background: var(--gradient-cosmic);
+  color: var(--black-hole);
+  transform: translateY(-3px);
+  box-shadow: var(--stardust-shadow);
+}
+
+.social-tooltip {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--black-hole);
+  color: var(--milky-way);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cosmic-social:hover .social-tooltip {
+  opacity: 1;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid var(--star-dust);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: var(--asteroid);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--cosmic-primary);
+}
+
+.cosmic-heart {
+  color: var(--cosmic-accent);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ===========================================
+   EFECTO SUPER SAYAYÍN (Easter Egg)
+   =========================================== */
+.super-sayayan-active {
+  animation: superSayayanFlash 0.5s ease-in-out;
+}
+
+@keyframes superSayayanFlash {
+  0%, 100% {
+    filter: brightness(1) hue-rotate(0deg);
+  }
+  50% {
+    filter: brightness(1.5) hue-rotate(60deg);
+  }
+}
+
+.super-sayayan-active .cosmic-hero {
+  background: radial-gradient(circle at center, rgba(245, 158, 11, 0.3), transparent 70%),
+              var(--gradient-hero);
+}
+
+/* ===========================================
+   RESPONSIVE DESIGN - MODO ULTRA INSTINCT
+   =========================================== */
+@media (max-width: 1024px) {
+  .cosmic-fila {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .cosmic-col {
+    width: 100%;
+  }
+  
+  .cosmic-interests {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .cosmic-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    padding: 12px 20px;
+  }
+  
+  .cosmic-nav {
+    display: none;
+  }
+  
+  .cosmic-toggle {
+    display: flex;
+  }
+  
+  .cosmic-nav.responsive {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 17, 32, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--star-dust);
+    padding: 20px;
+  }
+  
+  .cosmic-nav.responsive ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .cosmic-section {
+    padding: 80px 20px;
+  }
+  
+  .cosmic-hero {
+    padding: 100px 20px 60px;
+  }
+  
+  .cosmic-redes {
+    gap: 12px;
+  }
+  
+  .cosmic-link {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .info-card,
+  .interests-card,
+  .skills-category,
+  .cosmic-form,
+  .contact-card {
+    padding: 25px;
+  }
+  
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cosmic-hero {
+    padding: 80px 15px 40px;
+  }
+  
+  .power-level {
+    font-size: 2.5rem;
+  }
+  
+  .title-ki {
+    font-size: 1.1rem;
+  }
+  
+  .cosmic-interests {
+    grid-template-columns: 1fr;
+  }
+  
+  .cosmic-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cosmic-filters {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cosmic-filter {
+    width: 200px;
+    justify-content: center;
+  }
+  
+  .stack-items {
+    gap: 15px;
+  }
+  
+  .stack-item {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}
+
+/* ===========================================
+   ANIMACIONES DE ENTRADA MEJORADAS
+   =========================================== */
+.item, .skill, .proyecto, .cosmic-interest, .stack-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.item.visible, .skill.visible, .proyecto.visible, 
+.cosmic-interest.visible, .stack-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Retrasos escalonados para animaciones */
+.item.visible:nth-child(1) { transition-delay: 0.1s; }
+.item.visible:nth-child(2) { transition-delay: 0.2s; }
+.item.visible:nth-child(3) { transition-delay: 0.3s; }
+.skill.visible:nth-child(1) { transition-delay: 0.1s; }
+.skill.visible:nth-child(2) { transition-delay: 0.2s; }
+.skill.visible:nth-child(3) { transition-delay: 0.3s; }
+.skill.visible:nth-child(4) { transition-delay: 0.4s; }
+.skill.visible:nth-child(5) { transition-delay: 0.5s; }
+
+/* ===========================================
+   MODO CLARO (Alternativo)
+   =========================================== */
+body.modo-claro {
+  --nebula-bg: #F8FAFC;
+  --black-hole: #FFFFFF;
+  --star-dust: rgba(0, 0, 0, 0.1);
+  --comet-tail: rgba(0, 0, 0, 0.15);
+  --milky-way: #1F2937;
+  --moon-dust: #4B5563;
+  --asteroid: #6B7280;
+  --dark-matter: #E5E7EB;
+}
+
+body.modo-claro .contenedor-header {
+  background: rgba(248, 250, 252, 0.95);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+body.modo-claro .info-card,
+body.modo-claro .interests-card,
+body.modo-claro .skills-category,
+body.modo-claro .cosmic-item,
+body.modo-claro .cosmic-form,
+body.modo-claro .contact-card,
+body.modo-claro .proyecto {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--milky-way);
+}
+
+body.modo-claro .cosmic-skills,
+body.modo-claro .cosmic-timeline,
+body.modo-claro .cosmic-projects,
+body.modo-claro .cosmic-contact {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+body.modo-claro .cosmic-footer {
+  background: var(--dark-matter);
+  color: var(--moon-dust);
+}
+
+/* Asegurar contraste en modo claro */
+body.modo-claro .cosmic-list span,
+body.modo-claro .cosmic-contact-list span,
+body.modo-claro .bio-text,
+body.modo-claro .skills-intro p,
+body.modo-claro .projects-intro p,
+body.modo-claro .contact-intro p {
+  color: var(--moon-dust);
+}
+
+/* ===========================================
+   UTILIDADES Y HELPER CLASSES
+   =========================================== */
+.text-cosmic {
+  background: var(--gradient-cosmic);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-cosmic {
+  text-shadow: 0 0 20px rgba(0, 229, 168, 0.5);
+}
+
+.glow-secondary {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.shadow-cosmic {
+  box-shadow: var(--stardust-shadow);
+}
+
+.border-cosmic {
+  border: 1px solid var(--cosmic-primary);
+}
+
+.bg-cosmic {
+  background: var(--gradient-cosmic);
+}
+
+/* Efecto de brillo al hacer hover */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--stardust-shadow);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid var(--cosmic-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Tooltips mejorados */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--black-hole);
+  color: var(--milky-way);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nebula-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-cosmic);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cosmic-primary);
+}
+
+/* Selección de texto */
+::selection {
+  background: var(--cosmic-primary);
+  color: var(--black-hole);
+}
+
+::-moz-selection {
+  background: var(--cosmic-primary);
+  color: var(--black-hole);
+}
+
+/* Netlify Form Success Styles */
+.form-success {
+  text-align: center;
+  padding: 40px;
+  background: rgba(0, 229, 168, 0.1);
+  border: 2px solid var(--cosmic-primary);
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.form-success h3 {
+  color: var(--cosmic-primary);
+  margin-bottom: 15px;
+}
+
+.form-success p {
+  color: var(--moon-dust);
+  font-size: 1.1rem;
+}
+
+/* === 🌌 Cosmic Footer === */
+.cosmic-footer {
+  background: linear-gradient(180deg, #0B1120, #111827);
+  padding: 50px 0 30px;
+  text-align: center;
+  color: #E5E7EB;
+  border-top: 1px solid rgba(0, 229, 168, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.cosmic-footer::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200%;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0,229,168,0.15) 0%, transparent 70%);
+  animation: cosmicGlow 6s infinite alternate;
+}
+
+@keyframes cosmicGlow {
+  from { opacity: 0.4; transform: translateX(-50%) scale(1); }
+  to { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+.cosmic-footer h3 {
+  color: #00E5A8;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  color: #A5B4FC;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.social-links a:hover {
+  color: #00E5A8;
+  transform: scale(1.2);
+  text-shadow: 0 0 10px rgba(0, 229, 168, 0.6);
+}
+
+.footer-copy {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  color: #A5B4FC;
+  margin-top: 10px;
+}
+
+/* ===========================================
+   CORRECCIONES CRÍTICAS - VISIBILIDAD
+   =========================================== */
+
+/* Remover opacidad inicial que esconde el contenido */
+.item, .skill, .proyecto, .cosmic-interest, .stack-item {
+  opacity: 1 !important; /* Forzar visibilidad inicial */
+  transform: translateY(0) !important; /* Remover transform que esconde */
+}
+
+/* Solo animar cuando se agrega la clase visible */
+.item.visible, .skill.visible, .proyecto.visible, 
+.cosmic-interest.visible, .stack-item.visible {
+  animation: slideUpFade 0.6s ease;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Asegurar que el grid de proyectos sea visible */
+.cosmic-grid {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Remover doble footer */
+body > footer:first-of-type {
+  display: none; /* Ocultar el footer duplicado */
+}
+
+/* Forzar visibilidad del contenido principal */
+.contenido-seccion,
+.cosmic-bio,
+.cosmic-fila,
+.cosmic-col {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Asegurar que las secciones sean visibles */
+.cosmic-section {
+  opacity: 1 !important;
+}
+
+/* ===========================================
+   CORRECCIÓN ESPECÍFICA PARA PROYECTOS
+   =========================================== */
+
+/* Forzar visibilidad del grid de proyectos */
+.cosmic-grid {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: grid !important;
+}
+
+/* Asegurar que las tarjetas de proyectos sean visibles */
+.proyecto {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+/* Contenedor de proyectos visible */
+#galeria {
+  opacity: 1 !important;
+  visibility: visible !important;
+  min-height: 200px;
+}
+
+/* Botones de filtro activos */
+.cosmic-filters {
+  opacity: 1 !important;
+}
+
+/* Asegurar que los enlaces de proyectos funcionen */
+.proyecto-links a {
+  position: relative;
+  z-index: 10;
+}
+
+/* Overlay de proyectos visible al hover */
+.proyecto .overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.proyecto:hover .overlay {
+  opacity: 1;
+}
